@@ -17,4 +17,21 @@ llm-sizer --list-models --json
 llm-sizer --model llama-3-70b --quant q4 --context 8k --json
 ```
 
+Regenerate the README GIF (Windows, Consolas + ffmpeg):
+
+```bash
+python scripts/render_demo.py
+```
+
+## Publish
+
+Releases are uploaded to PyPI by `.github/workflows/publish.yml` via trusted publishing.
+
+1. Create a PyPI project trusted publisher at https://pypi.org/manage/account/publishing/
+   - Owner: `saheb26`
+   - Repository: `llm-sizer`
+   - Workflow: `publish.yml`
+   - Environment: `pypi`
+2. Tag a release (`v0.1.0`) or run the **publish** workflow manually.
+
 Keep JSON keys stable. Do not change the CounselNode notice string.

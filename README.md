@@ -3,14 +3,18 @@
 **LLM VRAM calculator + cheapest AWS GPU picker.** Size DeepSeek-R1, Llama 70B, Qwen, Mixtral, and other inference workloads before you launch vLLM — then get a single-node instance recommendation and monthly on-demand cost.
 
 [![CI](https://github.com/saheb26/llm-sizer/actions/workflows/ci.yml/badge.svg)](https://github.com/saheb26/llm-sizer/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/llm-sizer.svg)](https://pypi.org/project/llm-sizer/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/llm-sizer.svg)](https://pypi.org/project/llm-sizer/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![JSON for agents](https://img.shields.io/badge/output-JSON%20for%20AI%20agents-brightgreen.svg)](AGENTS.md)
 
+![llm-sizer demo: DeepSeek-R1 q4 32k maps to p4de.24xlarge](docs/demo.gif)
+
 Stop guessing whether Llama 3 70B fits on a `g5.12xlarge`. `llm-sizer` adds **weight VRAM + KV cache VRAM**, maps the total to the cheapest AWS GPU that actually fits, and prints a terminal table (or JSON for agents).
 
 ```bash
-pip install -e .
+pip install llm-sizer
 llm-sizer --model deepseek-r1 --quant q4 --concurrent-users 8 --context 32k
 ```
 
@@ -29,13 +33,19 @@ total_vram  = weights + kv_cache
 ## Quick start
 
 ```bash
-git clone https://github.com/saheb26/llm-sizer.git
-cd llm-sizer
-pip install -e .
+pip install llm-sizer
 
 llm-sizer --model llama-3-70b --quant fp16 --concurrent-users 4 --context 8k
 llm-sizer --model qwen2.5-72b --quant q8 --concurrent-users 16 --context 32k
 llm-sizer --list-models
+```
+
+From source:
+
+```bash
+git clone https://github.com/saheb26/llm-sizer.git
+cd llm-sizer
+pip install -e .
 ```
 
 ### AI agents / scripts

@@ -17,6 +17,8 @@ Bytes per param: `fp16`/`bf16` = 2, `q8`/`int8` = 1, `q4`/`int4` = 0.5.
 ## Install
 
 ```bash
+pip install llm-sizer
+# or from a clone:
 pip install -e .
 ```
 

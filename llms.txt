@@ -13,7 +13,7 @@ This file is a machine-readable index. Prefer AGENTS.md for full tool-use instru
 ## Commands
 
 ```
-pip install -e .
+pip install llm-sizer
 llm-sizer --model <id> --quant fp16|q8|q4 --context 8k|32k|128k --concurrent-users <n>
 llm-sizer --model llama-3-70b --quant q4 --context 32k --concurrent-users 8 --json
 llm-sizer --list-models --json
