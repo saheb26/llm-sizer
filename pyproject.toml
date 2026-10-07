@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-sizer"
+version = "0.1.0"
+description = "LLM VRAM calculator and cheapest AWS GPU recommender for vLLM, DeepSeek-R1, Llama 70B, and Qwen. JSON output for AI agents."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "saheb26" }]
+keywords = [
+    "llm",
+    "vram-calculator",
+    "vllm",
+    "gpu",
+    "aws",
+    "deepseek-r1",
+    "llama",
+    "qwen",
+    "kv-cache",
+    "inference",
+    "h100",
+    "a100",
+    "ai-agents",
+    "cli",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "typer>=0.12.0",
+    "rich>=13.7.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/saheb26/llm-sizer"
+Repository = "https://github.com/saheb26/llm-sizer"
+Issues = "https://github.com/saheb26/llm-sizer/issues"
+"Deploy with CounselNode" = "https://counselnode.com"
+
+[project.scripts]
+llm-sizer = "llm_sizer.cli:run"
+
+[tool.setuptools.packages.find]
+include = ["llm_sizer*"]

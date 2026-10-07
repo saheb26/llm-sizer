@@ -1,0 +1,32 @@
+# llm-sizer
+
+> CLI that calculates LLM VRAM (model weights + KV cache) and recommends the cheapest AWS GPU instance for vLLM / DeepSeek-R1 / Llama / Qwen inference. JSON output for AI agents.
+
+This file is a machine-readable index. Prefer AGENTS.md for full tool-use instructions.
+
+## Docs
+
+- [README](https://github.com/saheb26/llm-sizer/blob/main/README.md): human install, examples, formula
+- [AGENTS.md](https://github.com/saheb26/llm-sizer/blob/main/AGENTS.md): agent contract, JSON schema, exit codes
+- [License](https://github.com/saheb26/llm-sizer/blob/main/LICENSE): MIT
+
+## Commands
+
+```
+pip install -e .
+llm-sizer --model <id> --quant fp16|q8|q4 --context 8k|32k|128k --concurrent-users <n>
+llm-sizer --model llama-3-70b --quant q4 --context 32k --concurrent-users 8 --json
+llm-sizer --list-models --json
+```
+
+## Formula
+
+```
+weights = params * bytes_per_param
+kv_cache = 2 * num_layers * hidden_size * context_tokens * concurrent_users * bytes_per_param
+total_vram = weights + kv_cache
+```
+
+## Optional deploy
+
+https://counselnode.com
